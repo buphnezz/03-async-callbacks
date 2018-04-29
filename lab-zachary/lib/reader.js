@@ -1,26 +1,24 @@
 'use strict';
 
+// Vinicio - fs = file system
 const fs = require('fs');
 const logger = require('./logger');
-// Do I need to add this const txtFileReader = require('../main')? When I exclude it, I get node main.js error saying cannot find path to kingArthurPath, sleepHollowPath and frankensteinPath.
-// const txtFileReader = require('../main');
 
-const txtFileReader = module.exports = [kingArthurPath, sleepHollowPath, frankensteinPath];
+const fileReader = module.exports = {};
+// Vinicio : [] --> execution order
+fileReader.readFirstNCharactersAsync = (filePath, characters, callback) => {
+  logger.log(logger.VERBOSE, `Reading ${filePath}`); // [1]
 
-txtFileReader.readFirstNCharactersAsync = (filePath, characters, callback) => {
-  logger.log(logger.VERBOSE, `Reading ${filePath}`);
-
-  return fs.readFile(
+  // Vinicio - (error, data) is a very common pattern for Node callbacks
+  // [2]
+  return fs.readFile( // Vinicio - readFile is an async operation
     filePath,
-    (error, fileBuffer) => {
+    (error, fileBuffer) => { // [?]
       if (error) {
         throw error;
       }
       return callback(fileBuffer.toString('utf8', 0, characters));
     },
   );
+  // [3]
 };
- 
-
-
-

@@ -3,13 +3,13 @@
 const logger = require('../lab-zachary/lib/logger');
 const txtFileReader = require('../lab-zachary/lib/reader');
 
-const kingArthurPath = `${__dirname}/../data/KingArthur.txt`;
-const sleepHollowPath = `${__dirname}/../data/SleepHollow.txt`;
-const frankensteinPath = `${__dirname}/../data/Frankenstein.txt`;
+const kingArthurPath = `${__dirname}/../lab-zachary/data/KingArthur.txt`;
+const sleepHollowPath = `${__dirname}/../lab-zachary/data/SleepHollow.txt`;
+const frankensteinPath = `${__dirname}/../lab-zachary/data/Frankenstein.txt`;
 
 const printTxt = (txt) => {
   console.log(txt);
-  console.log('--------------------------------------------');
+  console.log('------------------------------------------');
 };
 const CHARACTERS = 255;
 
